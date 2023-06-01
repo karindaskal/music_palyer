@@ -18,6 +18,23 @@ const AuthReducer = (state, action) => {
                 isFetching: false,
                 error: action.payload
             };
+        case "LIKE":
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    favorites: [...state.user.favorites, action.payload]
+                }
+            };
+        case "UNLIKE":
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    favorites: state.user.favorites.filter(songId => songId != action.payload)
+                }
+            };
+
 
         default: return state
     }

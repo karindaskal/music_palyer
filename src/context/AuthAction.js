@@ -9,3 +9,11 @@ export const LoginFailure = (error) => ({
     type: "LOGIN_FAILURE",
     payload: error
 })
+export const Like = (songId) => ({
+    type: "LIKE",
+    payload: songId,
+})
+export const UnLike = (songId) => ({
+    type: "UNLIKE",
+    payload: songId,
+})

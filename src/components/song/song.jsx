@@ -1,34 +1,28 @@
 import './song.css'
 import Artist from '../artist/artist'
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import axios from "axios"
-
-
+import { AuthContext } from '../../context/AuthContext';
 export default function Song({ song }) {
     const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("token") };
-    const [like, setlike] = useState(false)
+    const { user, dispatch } = useContext(AuthContext)
+    const [like, setlike] = useState(user.favorites.includes(song._id))
+    useEffect(() => {
+        setlike(user.favorites.includes(song._id))
+
+    }, [like])
+
     const handeleLike = async () => {
         try {
-            console.log("http://localhost:3000/user/" + song._id + "/like")
-            console.log(headers)
-            //await axios.put("http://localhost:3000/user/", {}, { headers: headers })
-
-            // const res = await axios.get("http://localhost:3000/user/favorite", { headers })
-            const res = await axios.put("http://localhost:3000/user/" + song._id + "/like", {}, { headers })
-
+            await axios.put("http://localhost:3000/user/" + song._id + "/like", {}, { headers })
             if (like) {
-
-                console.log("unlike")
                 setlike(false)
-                document.getElementById(song._id).src = "asset/unlike.png"
+                dispatch({ type: "LIKE", payload: song._id })
             }
             else {
-                console.log("like")
                 setlike(true)
-                document.getElementById(song._id).src = "asset/like.png"
-
+                dispatch({ type: "UNLIKE", payload: song._id })
             }
-
 
         }
         catch (err) {
@@ -54,7 +48,7 @@ export default function Song({ song }) {
 
             </div>
             <div className="botton"  >
-                <button onClick={handeleLike} src="asset/unlike.png"  ><img className='like' src="asset/unlike.png" id={song._id} /></button>
+                <button onClick={handeleLike}  ><img className='like' src={like ? "asset/like.png" : "asset/unlike.png"} id={song._id} /></button>
 
             </div>
 
