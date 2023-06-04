@@ -8,7 +8,7 @@ export default function Song({ song }) {
     const { user, dispatch } = useContext(AuthContext)
     const [like, setlike] = useState(user.favorites.includes(song._id))
     useEffect(() => {
-        setlike(user.favorites.includes(song._id))
+        //  setlike(user.favorites.includes(song._id))
 
     }, [like])
 
