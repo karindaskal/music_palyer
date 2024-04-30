@@ -7,7 +7,7 @@ import axios from "axios"
 
 export default function Home() {
     const [songs, setSongs] = useState([])
-    const [searchfield, setSearchfield] = useState("");
+    const [searchfield, setSearchfield] = useState(" ");
     useEffect(() => {
 
         const fetchSong = async () => {
@@ -37,6 +37,7 @@ export default function Home() {
 
                 <Topbar />
                 <Search handeleSerch={handeleSerch} />
+
                 <Feed Data={songs} />
             </>
         </div>

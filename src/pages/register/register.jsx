@@ -1,4 +1,5 @@
 import "./register.css"
+import { Link } from 'react-router-dom';
 import { useRef } from "react";
 import { RegisterCall } from "../../apiCalls";
 import { useNavigate } from 'react-router-dom';
@@ -51,7 +52,7 @@ export default function Register() {
                             <input placeholder="password" required className="loginInput" type="password" ref={password}></input>
                             <input placeholder="password Again" required className="loginInput" type="password" ref={passwordAgain}></input>
                             <button className="loginbutton" type="submit" >sing up</button>
-                            <button className="loginregisterButton">log into acount</button>
+                            <Link to={`/login`} className="loginregisterButton"> login</Link>
                         </form>
                     </div>
 

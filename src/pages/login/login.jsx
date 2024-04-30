@@ -1,5 +1,6 @@
 import { useContext, useRef } from "react"
 import "./login.css"
+import { Link } from 'react-router-dom';
 import { loginCall } from "../../apiCalls";
 import { useEffect, useState } from "react"
 import { useNavigate } from 'react-router-dom';
@@ -39,8 +40,11 @@ export default function Login() {
                         <input placeholder="email" type="email" required className="loginInput" ref={email}></input>
                         <input placeholder="password" type="password" required minLength="6" className="loginInput" ref={password}></input>
                         <button className="loginbutton">{isFetching ? "loading" : "logIn"}</button>
-                        <button className="loginregisterButton">create new acount</button>
+
                     </form>
+
+                    <Link to={`/Register`} className="loginregisterButton">create new acount</Link>
+
 
 
 

@@ -1,10 +1,11 @@
 .searchbar {
-    width: 50%;
+    width: 20%;
     height: 30px;
-    background-color: #818181;
+    background-color: #e14c4c;
     border-radius: 30px;
     display: flex;
     align-items: center;
+
 
 
 
