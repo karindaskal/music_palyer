@@ -1,4 +1,4 @@
-﻿# musuc player
+﻿# music player
 
 [![My Skills](https://skillicons.dev/icons?i=js,nodejs,react,express,mongodb&theme=light)](https://skillicons.dev)
 
