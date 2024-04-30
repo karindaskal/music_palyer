@@ -1,4 +1,5 @@
 import axios from "axios"
+
 export const headers = { 'Authorization': 'Bearer ' + localStorage.getItem("token") };
 export const loginCall = async (user, dispatch) => {
     try {
@@ -45,5 +46,9 @@ export const RegisterCall = async (user) => {
 }
 export const getfavoriteSongs = async (user) => {
     const res = await axios.get("http://localhost:3000/mangment/song")
+    return res;
+}
+export const getfavoriteArtist = async (user) => {
+    const res = await axios.get("http://localhost:3000/mangment/artist")
     return res;
 }
