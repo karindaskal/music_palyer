@@ -31,7 +31,7 @@ const AuthReducer = (state, action) => {
                 ...state,
                 user: {
                     ...state.user,
-                    favorites: state.user.favorites.filter(songId => songId != action.payload)
+                    favorites: state.user.favorites.filter(songId => songId !== action.payload)
                 }
             };
 
