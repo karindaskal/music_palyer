@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function Statistics() {
     const [songs, setSongs] = useState([]);
+    const [artist, setSArtist] = useState([]);
     const [songLabels, setSongLabels] = useState([]);
     const [songCount, setSongCount] = useState([]);
 
@@ -18,6 +19,7 @@ export default function Statistics() {
 
         fetchSongs();
     }, []);
+
 
     useEffect(() => {
         const getLabels = async () => {
@@ -37,8 +39,9 @@ export default function Statistics() {
     return (
         <div>
             <Topbar />
+            <div className="headline">most favorite song</div>
             {songLabels.length > 0 && <Grap labels={songLabels} count={songCount} />}
-            {songLabels.length > 0 && <Grap labels={songLabels} count={songCount} />}
+
         </div>
     );
 }
