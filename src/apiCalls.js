@@ -43,3 +43,7 @@ export const RegisterCall = async (user) => {
 
 
 }
+export const getfavoriteSongs = async (user) => {
+    const res = await axios.get("http://localhost:3000/mangment/song")
+    return res;
+}
