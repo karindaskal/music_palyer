@@ -15,7 +15,9 @@ export default function Topbar() {
 
             </div>
             <div className="topbarRight">
-                <span className="topbarLink">Homepage</span>
+                <Link to="/statistics">
+                    <span className="topbarLink">statistics</span>
+                </Link>
                 <Link to="/favorite">
                     <span className="topbarLink">favorites</span>
                 </Link>
